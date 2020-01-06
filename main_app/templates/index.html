@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Wish List</h1>
+
+ <table>
+  <thead>
+    <tr>
+        <th>Description:</th>
+        <th>Delete:</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for item in items %}
+        <tr>
+          <td><p>{{ item.description }}</p></td>
+          <td><a href="{% url 'delete_items' item.id %}">X</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+     
+<a href="{% url 'items_create'  %}">Add A Item </a>
+
+{% endblock %}
